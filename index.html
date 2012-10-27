@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title></title>
+<meta name="description" content="" />
+<meta name="keywords" content="" />
+<meta name="viewport" content="width=device-width,initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no" />
+<style>
+	body {
+		background: #e8e8e8;
+		text-align: center;
+	}
+	h1,p {
+		text-shadow: 1px 1px 0 #fff;
+	}
+	.button {
+		color: #990000;
+		text-shadow: 1px 1px 0 #fff;
+		width: 40%;
+		position: relative;
+		text-align: center;
+		border: 1px solid #fff;
+		outline: 1px solid #ccc;
+		margin: 15px auto;
+		padding: 25px;
+		background: #eee;
+		display: block;
+		font-size: 16px;
+		text-decoration: none;
+	}
+</style>
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-28381001-1']);
+  _gaq.push(['_trackPageview']);
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script></head>
+<body>
+	<h1 class="transform">Transformer JS</h1>
+	<p class="transform">下のボタンもトランスフォームします</p>
+	<div>
+		<a href="example/ex1.html" id="button1" class="button transform">
+			<span>Simple Transform Demo</span>
+		</a>
+	</div>
+	<div>
+		<a href="example/ex2.html" id="button2" class="button transform">
+			Multiple Transform Demo
+		</a>
+	</div>
+	<div>
+		<a href="example/ex3.html" id="button3" class="button transform">
+			Gallery Demo
+		</a>
+	</div>
+	<div>
+		<a href="example/ex4.html" id="button4" class="button transform">
+			Site Demo
+		</a>
+	</div>
+	<div>
+		<a href="example/ex5.html" id="button4" class="button transform">
+			Layout Demo
+		</a>
+	</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+<script src="transformer.js"></script>
+<script>
+	$(".transform").transformer({
+		minScale: 1,
+		maxScale: 3,
+		centering: false
+	});
+	$(".transform").on("touch",function(e) {
+		$(".transform").css("zIndex",1);
+		$(this).css("zIndex",5);
+	});
+</script>
+</body>
+</html>

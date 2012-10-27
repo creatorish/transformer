@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title></title>
+<meta name="description" content="" />
+<meta name="keywords" content="" />
+<meta name="viewport" content="width=device-width,initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no" />
+<style>
+	body {
+		background: #e8e8e8;
+	}
+	#wrap {
+		width: 710px;
+		margin: 0 auto;
+	}
+	#item {
+		float: left;
+		width: 200px;
+		font-size: 11px;
+		text-align: center;
+	}
+	#container {
+		float: left;
+		width: 500px;
+		height: 400px;
+		border: 5px solid #ccc;
+		overflow: hidden;
+		margin: 0 auto;
+	}
+	.table {
+		width: 100px;
+		height: 40px;
+		background: #993300;
+	}
+	.tv {
+		width: 40px;
+		height: 20px;
+		background: #ccccff;
+	}
+	.sofa {
+		width: 200px;
+		height: 30px;
+		background: #cc66ff;
+	}
+	.chair {
+		width: 30px;
+		height: 30px;
+		background: #cccc66;
+	}
+</style>
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-28381001-1']);
+  _gaq.push(['_trackPageview']);
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+</head>
+<body>
+	<div><a href="../index.html">Back</a></div>
+	<div id="wrap">
+		<div id="item">
+			<div id="table1" class="table object">TABLE</div>
+			<div id="table2" class="table object">TABLE</div>
+			<div id="table3" class="table object">TABLE</div>
+			<div id="table4" class="table object">TABLE</div>
+			<div id="table5" class="table object">TABLE</div>
+			
+			<div id="chair1" class="chair object">CHAIR</div>
+			<div id="chair2" class="chair object">CHAIR</div>
+			<div id="chair3" class="chair object">CHAIR</div>
+			<div id="chair4" class="chair object">CHAIR</div>
+			<div id="chair5" class="chair object">CHAIR</div>
+			
+			<div id="sofa7" class="sofa object">SOFA</div>
+			
+			<div id="tv1" class="tv object">TV</div>
+			<div id="tv2" class="tv object">TV</div>
+		</div>
+		<div id="container">
+			
+		</div>
+	</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+<script src="../transformer.js"></script>
+<script>
+	$(".object").transformer({
+		minScale: 1,
+		maxScale: 1,
+		centering: false,
+		gesture: false
+	});
+	$(".object").bind("tap",function(e,data) {
+		var tf = $(this).data("transform");
+		tf.animate({
+			rotation: data.rotation+45
+		},200);
+	});
+</script>
+</body>
+</html>

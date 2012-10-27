@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title></title>
+<meta name="description" content="" />
+<meta name="keywords" content="" />
+<meta name="viewport" content="width=device-width,initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no" />
+<style>
+	body {
+		background: #e8e8e8;
+	}
+	#container {
+		width: 800px;
+		border: 1px solid #ccc;
+		overflow: hidden;
+		margin: 0 auto;
+	}
+	.block {
+		border: 1px solid #fff;
+		outline: 1px solid #ccc;
+		text-shadow: 1px 1px 0 #fff;
+		font-size: 32px;
+		background: #eee;
+		display: inline-block;
+	}
+	
+	#header {
+		width: 100%;
+		height: 200px;
+	}
+	#content1 {
+		width: 600px;
+		height: 400px;
+	}
+	#content2 {
+		width: 300px;
+		height: 200px;
+	}
+	#content3 {
+		width: 300px;
+		height: 200px;
+	}
+	#sidebar {
+		width: 192px;
+		height: 400px;
+	}
+	#footer {
+		width: 100%;
+		height: 100px;
+	}
+</style>
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-28381001-1']);
+  _gaq.push(['_trackPageview']);
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+</head>
+<body>
+	<div><a href="../index.html">Back</a></div>
+	<div id="container">
+		<div id="header" class="block">header</div>
+		<div id="content1" class="block">content1</div>
+		<div id="sidebar" class="block">sidebar</div>
+		<div id="content2" class="block">content2</div>
+		<div id="content3" class="block">content3</div>
+		
+		<div id="footer" class="block">footer</div>
+	</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+<script src="../transformer.js"></script>
+<script>
+	$(".block").transformer({
+		minScale: 1,
+		maxScale: 1,
+		centering: false,
+		gesture: false
+	});
+</script>
+</body>
+</html>

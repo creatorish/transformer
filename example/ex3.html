@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title></title>
+<meta name="description" content="" />
+<meta name="keywords" content="" />
+<meta name="viewport" content="width=device-width,initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no" />
+<link rel="stylesheet" href="lib/photoswipe.css">
+<link rel="stylesheet" href="style.css">
+<style>
+	ul {
+		list-style: none;
+		display: none;
+	}
+	ul li a {
+		display: block;
+		border: 3px solid #333;
+	}
+	#container {
+		width: 90%;
+		height: 90%;
+		margin: 10px 5%;
+		overflow: hidden;
+		border: 1px solid #999;
+		-webkit-box-shadow: 3px 4px 5px rgba(0,0,0,0.3);
+		background: url(purty_wood.png);
+	}
+	.container {
+		width: 33%;
+		height: auto;
+		background: none;
+	}
+	.container img {
+		max-width: 100%;
+		width: 100%;
+		display: block;
+	}
+</style>
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-28381001-1']);
+  _gaq.push(['_trackPageview']);
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+</head>
+<body>
+	<div><a href="../index.html">Back</a></div>
+	<div id="container">
+		<ul id="gallery" class="row">
+			<li class="container"><a href="images/1.jpg"><img src="images/thumb/1.jpg" alt="Image 001" /></a></li>
+			<li class="container"><a href="images/2.jpg"><img src="images/thumb/2.jpg" alt="Image 002" /></a></li>
+			<li class="container"><a href="images/3.jpg"><img src="images/thumb/3.jpg" alt="Image 003" /></a></li>
+			<li class="container"><a href="images/4.jpg"><img src="images/thumb/4.jpg" alt="Image 004" /></a></li>
+			<li class="container"><a href="images/5.jpg"><img src="images/thumb/5.jpg" alt="Image 005" /></a></li>
+			<li class="container"><a href="images/6.jpg"><img src="images/thumb/6.jpg" alt="Image 006" /></a></li>
+			<li class="container"><a href="images/7.jpg"><img src="images/thumb/7.jpg" alt="Image 007" /></a></li>
+		<ul>
+	</div>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+<script src="lib/klass.min.js"></script>
+<script src="lib/code.photoswipe.js"></script>
+
+<script src="../transformer.js"></script>
+<script>
+	$(".container").transformer({
+		minScale: 1,
+		maxScale: 3
+	});
+	$.each($("#gallery li"), function() {
+		var tf = $(this).data("transform");
+		var x = Math.floor(Math.random()*$("#container").width()/2) - 80;
+		var y = Math.floor(Math.random()*$("#container").height()/2) - 80;
+		var s = Math.random() + 1;
+		var r = Math.random()*360;
+		tf.transform({
+			x: x,
+			y: y,
+			scale: s,
+			rotation: r
+		});
+	});
+	
+	$(".container").on("touch",function(e) {
+		$(".container").css("zIndex",1);
+		$(this).css("zIndex",5);
+	});
+	
+	$(window).load(function() {
+		$("#gallery").fadeIn("normal");
+		$("#gallery a").photoSwipe({allowUserZoom: false});
+	});
+</script>
+</body>
+</html>

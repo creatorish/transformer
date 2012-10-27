@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title></title>
+<meta name="description" content="" />
+<meta name="keywords" content="" />
+<meta name="viewport" content="width=device-width,initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no" />
+<link rel="stylesheet" href="style.css">
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-28381001-1']);
+  _gaq.push(['_trackPageview']);
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+</head>
+<body>
+	<div><a href="../index.html">Back</a></div>
+	<div id="container">
+		<div>Event: <span id="log"></span></div>
+	</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+<script src="../transformer.js"></script>
+<script>
+	var count = 10;
+	
+	if (navigator.userAgent.search(/iPad/) !== -1) {
+		count = 25;
+	}
+	
+	for (var i = 0; i < count; i++) {
+		var elm = $('<div class="container"></div>');
+		var r = parseInt(Math.random() * 255).toString(16);
+		var g = parseInt(Math.random() * 255).toString(16);
+		var b = parseInt(Math.random() * 255).toString(16);
+		var bgcolor = '#' + r + g + b;
+		
+		elm.css({
+			top: Math.floor(Math.random()*(window.innerHeight-100)),
+			left: Math.floor(Math.random()*(window.innerWidth-100)),
+			background: bgcolor
+		});
+		
+		$("#container").append(elm);
+	}
+	$(".container").transformer({
+		minScale: 1,
+		maxScale: 3,
+		centering: false
+	});
+	var z = 1;
+	$(".container").on("touch",function(e) {
+		if ($(this).css("zIndex") == z) {
+			return;
+		}
+		++z;
+		$(this).css("zIndex",z);
+	});
+	$(".container").on("touch release transform tap drag hold dblTap",function(e) {
+		$("#log").html(e.type);
+	});
+</script>
+</body>
+</html>
